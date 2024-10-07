@@ -1,0 +1,16 @@
+.about-container {
+    max-height: 650px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 50px;
+
+    .about-img {
+        width: 100%;
+    }
+
+    .about-content {
+        display: flex;
+        flex-direction: column;
+    }
+ 
+}

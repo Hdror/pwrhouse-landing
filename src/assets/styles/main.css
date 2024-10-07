@@ -1,0 +1,52 @@
+/* IMPORTS */
+
+/* Components */
+@import './components/header.css';
+@import './components/about.css';
+
+/* Home-Page */
+@import './home-page.css';
+
+/* Fonts */
+/* @font-face {
+    font-family: 'main-font';
+    src: url('../../../src/assets/font/Noto_Sans_Hebrew/static/NotoSansHebrew-Regular.ttf');
+} */
+
+#root {
+    height: 100%;
+}
+
+:root {
+    /* font-family: 'main-font'; */
+    line-height: 1.5;
+    font-weight: 400;
+    direction: rtl;
+    background-color: #F5F3EF;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100%;
+    /* $$ COLORS $$ */
+    --main-bgc: #F5F3EF
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+.bold-text {
+    font-weight: 700;
+    font-family: main-font;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
