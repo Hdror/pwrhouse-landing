@@ -5,6 +5,7 @@ import arrowDown from './assets/svg/arrow-down.svg'
 import { Typography } from '@mui/material'
 import { motion } from 'framer-motion';
 import About from './components/about';
+import Training from './components/training';
 
 function Home() {
 
@@ -31,7 +32,7 @@ function Home() {
             <Typography sx={{ fontWeight: "700", fontSize: "2.75rem" }}>
               בית
             </Typography>
-            <Typography sx={{ fontSize: "2.75rem",fontFamily:"main-font-thin" }}>
+            <Typography sx={{ fontSize: "2.75rem", fontFamily: "main-font-thin" }}>
               לאימונים
             </Typography>
           </div>
@@ -45,6 +46,7 @@ function Home() {
         />
       </section>
       <About />
+      <Training />
     </main>
   )
 }

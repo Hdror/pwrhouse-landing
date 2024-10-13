@@ -1,6 +1,6 @@
 .main-container {
     padding-top: 100px;
-    height: calc(100% - 100px);
+    /* height: calc(100% - 100px); */
     padding-inline: 24px;
 
     .full-viewport-height {

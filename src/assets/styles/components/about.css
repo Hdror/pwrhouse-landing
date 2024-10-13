@@ -3,14 +3,29 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
     column-gap: 50px;
+    margin-block-end: 75px;
 
     .about-img {
         width: 100%;
     }
 
-    .about-content {
+    .about-article-container {
         display: flex;
         flex-direction: column;
+
+        .about-content-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
     }
- 
+
+    .read-more-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        border: unset;
+    }
+
 }
