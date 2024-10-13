@@ -1,7 +1,7 @@
 import { Button, duration, Typography } from '@mui/material';
 // import { Button } from '@mui/base';
 import tahirImg from '../assets/img/tahir-img.png';
-import { motion } from 'framer-motion';
+import { delay, motion } from 'framer-motion';
 import CallReceivedIcon from '@mui/icons-material/CallReceived';
 import { useState } from 'react';
 
@@ -29,8 +29,8 @@ export default function About() {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.08,
-                delayChildren: 0.1,
+                staggerChildren: .1,
+                delayChildren: 3,
             }
         }
     }
@@ -46,10 +46,8 @@ export default function About() {
             opacity: 1,
             x: 0,
             transition: {
-                // duration:0.5,
+                duration:.5,
                 type: 'ease-in',
-                staggerChildren: 0.8,
-                delayChildren: 1,
             }
         }
     }
@@ -82,14 +80,13 @@ export default function About() {
                 >
 
                     {/* Headline */}
-                    <Typography variant='h3' sx={{ fontWeight: '700', lineHeight: '1.5' }}>
+                    <Typography component={motion.p} variant='h3' sx={{ fontWeight: '700', lineHeight: '1.5' }}>
                         {articleText.headline.split("").map((letter, idx) => (
                             <motion.span
                                 key={idx}
                                 variants={letterVariant}
                                 transition={{
                                     duration: 0.5,
-                                    delay: idx * 0.08,
                                     ease: 'easeInOut',
                                 }}
                             >
@@ -98,7 +95,7 @@ export default function About() {
                         ))}
                     </Typography>
                     {/* SubHeadline */}
-                    <Typography variant='h4' sx={{ fontSize: '4rem', fontFamily: 'main-font', lineHeight: '1.125' }}>
+                    <Typography  component={motion.p} variant='h4' sx={{ fontSize: '4rem', fontFamily: 'main-font', lineHeight: '1.125' }}>
                         {articleText.subHeadline.split("").map((letter, idx) => (
                             <motion.span
                                 key={idx}
@@ -112,13 +109,8 @@ export default function About() {
                             </motion.span>
                         ))}
                     </Typography>
-                    <div className="about-content-container" style={{ height: !isArticleOpen ? '0px' : '400px', overflow: 'hidden' }}>
-                        <Typography>{articleText.firstParagraph}</Typography>
-                        <Typography sx={{ fontWeight: '700' }}>החזון שלי</Typography>
-                        <Typography>{articleText.secondParagraph}</Typography>
-                        <Typography>{articleText.powerSentence}</Typography>
-                        <Typography>{articleText.finalParagraph}</Typography>
-                    </div>
+                    <motion.div>
+
                     <motion.button
                         className="read-more-btn"
                         variants={buttonVariant}
@@ -128,6 +120,16 @@ export default function About() {
                         <Typography  component={motion.p} sx={{ fontSize: '1.875rem', lineHeight: '2.4' }}>{articleText.accordionline}</Typography>
                         <CallReceivedIcon   component={motion.svg} sx={{ fontSize: '1.875rem' }}></CallReceivedIcon>
                     </motion.button>
+                    </motion.div>
+
+                    <div className="about-content-container" style={{ height: !isArticleOpen ? '0px' : '400px', overflow: 'hidden' }}>
+                        <Typography>{articleText.firstParagraph}</Typography>
+                        <Typography sx={{ fontWeight: '700' }}>החזון שלי</Typography>
+                        <Typography>{articleText.secondParagraph}</Typography>
+                        <Typography>{articleText.powerSentence}</Typography>
+                        <Typography>{articleText.finalParagraph}</Typography>
+                    </div>
+                 
                 </motion.div>
 
             </article>
