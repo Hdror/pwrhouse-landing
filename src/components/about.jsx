@@ -29,11 +29,12 @@ export default function About() {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: .1,
-                delayChildren: 3,
+                staggerChildren:.1,
+                delayChildren:1,
             }
         }
     }
+
 
     const letterVariant = {
         hidden: { opacity: 0 },
@@ -41,12 +42,12 @@ export default function About() {
     };
 
     const buttonVariant = {
-        hidden: { opacity: 0, x: '100vw' },
+        hidden: { opacity: 0, },
         visible: {
             opacity: 1,
-            x: 0,
+            x: [100, -50, 0],
             transition: {
-                duration:.5,
+                duration: .5,
                 type: 'ease-in',
             }
         }
@@ -80,13 +81,13 @@ export default function About() {
                 >
 
                     {/* Headline */}
-                    <Typography component={motion.p} variant='h3' sx={{ fontWeight: '700', lineHeight: '1.5' }}>
+                    <Typography variant='h3' sx={{ fontWeight: '700', lineHeight: '1.5' }}>
                         {articleText.headline.split("").map((letter, idx) => (
                             <motion.span
                                 key={idx}
                                 variants={letterVariant}
                                 transition={{
-                                    duration: 0.5,
+                                    // duration: 0.5,
                                     ease: 'easeInOut',
                                 }}
                             >
@@ -95,13 +96,13 @@ export default function About() {
                         ))}
                     </Typography>
                     {/* SubHeadline */}
-                    <Typography  component={motion.p} variant='h4' sx={{ fontSize: '4rem', fontFamily: 'main-font', lineHeight: '1.125' }}>
+                    <Typography variant='h4' sx={{ fontSize: '4rem', fontFamily: 'main-font', lineHeight: '1.125' }}>
                         {articleText.subHeadline.split("").map((letter, idx) => (
                             <motion.span
                                 key={idx}
                                 variants={letterVariant}
                                 transition={{
-                                    duration: 0.5,
+                                    // duration: 0.5,
                                     ease: 'easeInOut',
                                 }}
                             >
@@ -109,7 +110,7 @@ export default function About() {
                             </motion.span>
                         ))}
                     </Typography>
-                    <motion.div>
+                    {/* <motion.div variants={wrapperVariant}> */}
 
                     <motion.button
                         className="read-more-btn"
@@ -117,10 +118,10 @@ export default function About() {
                         onClick={handleToggleArticle}
 
                         title='הסיפור שלי'>
-                        <Typography  component={motion.p} sx={{ fontSize: '1.875rem', lineHeight: '2.4' }}>{articleText.accordionline}</Typography>
-                        <CallReceivedIcon   component={motion.svg} sx={{ fontSize: '1.875rem' }}></CallReceivedIcon>
+                        <Typography component={motion.p} sx={{ fontSize: '1.875rem', lineHeight: '2.4' }}>{articleText.accordionline}</Typography>
+                        <CallReceivedIcon component={motion.svg} sx={{ fontSize: '1.875rem' }}></CallReceivedIcon>
                     </motion.button>
-                    </motion.div>
+                    {/* </motion.div> */}
 
                     <div className="about-content-container" style={{ height: !isArticleOpen ? '0px' : '400px', overflow: 'hidden' }}>
                         <Typography>{articleText.firstParagraph}</Typography>
@@ -129,7 +130,7 @@ export default function About() {
                         <Typography>{articleText.powerSentence}</Typography>
                         <Typography>{articleText.finalParagraph}</Typography>
                     </div>
-                 
+
                 </motion.div>
 
             </article>
