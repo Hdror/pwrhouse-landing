@@ -47,7 +47,7 @@ function Header(props) {
                 {pages.map((page) => (
                     <ListItem key={page} disablePadding>
                         <ListItemButton>
-                            <ListItemText primary={page} />
+                            <ListItemText sx={{ textAlign: 'right' }} primary={page} />
                         </ListItemButton>
                     </ListItem>
                 ))}
@@ -98,7 +98,7 @@ function Header(props) {
                                     onClick={toggleDrawer(false)}
                                     sx={{ color: 'black', display: 'flex', gap: '5px' }}
                                 >
-                                    <Typography sx={{ fontWeight: '700',fontFamily:'main-font' }}>
+                                    <Typography sx={{ fontWeight: '700', fontFamily: 'main-font' }}>
                                         {splitWord[0]}
                                     </Typography>
                                     <Typography>

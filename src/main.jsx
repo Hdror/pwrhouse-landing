@@ -44,6 +44,9 @@ const theme = createTheme({
         body {
           background-color: #F5F3EF;
         }
+          *{
+        box-sizing:border-box
+        }
       `,
     },
   },
@@ -52,9 +55,9 @@ const theme = createTheme({
 
 
 createRoot(document.getElementById('root')).render(
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Header/>
-      <Home />
-    </ThemeProvider>
+  <ThemeProvider theme={theme}>
+    <CssBaseline />
+    <Header />
+    <Home />
+  </ThemeProvider>
 )

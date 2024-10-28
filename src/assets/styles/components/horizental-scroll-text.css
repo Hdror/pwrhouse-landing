@@ -1,0 +1,16 @@
+.horizental-scroll-container {
+    display: flex;
+    gap: 3vw;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+
+    .scroll-text-box {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+}

@@ -2,9 +2,94 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 25px;
+    flex-direction: column;
+    gap: 50px;
+    position: relative;
 
     .training-content {
         text-align: center;
+    }
+
+    .training-desc-container {
+        display: flex;
+        gap: 30px;
+        max-height: 600px;
+        justify-content: space-between;
+        position: relative;
+
+        .train-img-container {
+
+
+            position: relative;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 12px;
+
+            }
+
+            .expend-train {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 40px;
+                width: 90%;
+                direction: ltr;
+                color: white;
+                padding: 8px 20px;
+                border: 1px solid transparent;
+                border-radius: 8px;
+                background-clip: padding-box;
+                display: flex;
+                align-items: center;
+                z-index: 99;
+                align-items: center;
+                background: transparent;
+                backdrop-filter: blur(8px);
+                font-family: main-font;
+                border-radius: 8px;
+                border-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='none'%3e%3cpath stroke='url(%23a)' stroke-width='2' d='M8 1h84a7 7 0 0 1 7 7v84a7 7 0 0 1-7 7H8a7 7 0 0 1-7-7V8a7 7 0 0 1 7-7Z'/%3e%3cdefs%3e%3clinearGradient id='a' x1='20.27' x2='120.715' y1='125' y2='113.589' gradientUnits='userSpaceOnUse'%3e%3cstop stop-color='%23F5F3EF'/%3e%3cstop offset='.367' stop-color='%23F5F3EF'/%3e%3cstop offset='.682' stop-color='%23efece466'/%3e%3cstop offset='1' stop-color='%23efece466'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e") 8 / 8px stretch
+            }
+        }
+
+        .train-img-container[data-is-open="true"] {
+            width: 60%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            z-index: 99;
+
+        }
+    }
+
+}
+
+.train-content-container {
+    display: flex;
+    top: 0;
+    z-index: 99;
+    height: 100%;
+    width: 50%;
+    position: absolute;
+
+    .train-content {
+        display: flex;
+        background-color: white;
+        padding: 30px;
+        flex-direction: column;
+        width: 85%;
+    }
+
+    .blur-space {
+        height: 100%;
+        width: 15%;
+        backdrop-filter: blur(5px);
+        position: absolute;
+        left: 2%;
+        border-radius: 12px;
+        border-top-right-radius: unset;
+        border-bottom-right-radius: unset;
     }
 }

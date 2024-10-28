@@ -4,6 +4,7 @@
 @import './components/header.css';
 @import './components/about.css';
 @import './components/training.css';
+@import './components/horizental-scroll-text.css';
 
 /* Home-Page */
 @import './home-page.css';
@@ -13,6 +14,7 @@
     font-family: 'main-font';
     src: url('../../../src/assets/font/Noto_Sans_Hebrew/static/NotoSansHebrew-Regular.ttf');
 } */
+
 
 #root {
     height: 100%;
@@ -24,18 +26,16 @@
     font-weight: 400;
     direction: rtl;
     background-color: #F5F3EF;
-    text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    height: 100%;
     /* $$ COLORS $$ */
     --main-bgc: #F5F3EF
 }
 
 body {
     margin: 0;
+    overflow-x: hidden;
     min-width: 320px;
-    height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {

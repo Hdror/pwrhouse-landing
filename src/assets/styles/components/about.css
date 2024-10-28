@@ -1,5 +1,5 @@
 .about-container {
-    max-height: 650px;
+    min-height: 500px;
     display: grid;
     grid-template-columns: 1fr 2fr;
     column-gap: 50px;
@@ -12,11 +12,19 @@
     .about-article-container {
         display: flex;
         flex-direction: column;
+        position: relative;
+
+        .headline-container {
+            position: absolute;
+            bottom: 0px;
+        }
 
         .about-content-container {
             display: flex;
             flex-direction: column;
             gap: 20px;
+            width: 100%;
+            padding-top: 30px;
         }
     }
 
