@@ -29,9 +29,8 @@ export default function Training() {
     ];
 
     const slideVariants = {
-        hidden: { x: "-100%", opacity: 0 },
-        hiddenRight: { x: "100%", opacity: 0 },
-        visible: { x: 0, opacity: 1 },
+        hidden: { x: "100%",y:"30%", opacity: 0 },
+        visible: { x: 0,y:0, opacity: 1 },
     };
 
     return (
@@ -51,7 +50,6 @@ export default function Training() {
                     { img: gloves, label: 'BOXING' },
                 ].map((item, index) => (
                     <>
-                        {/* {(!openStates.includes(true) || openStates[index] ) && */}
                         <motion.div
                             key={index}
                             layout
@@ -67,16 +65,18 @@ export default function Training() {
                                 {item.label}
                             </button>
                         </motion.div>
-                        {/* } */}
                         <motion.div
-                        // variants={slideVariants}
-                        //     initial="hidden"
-                        //     animate="visible"
-                            layout
+                            // layout
+                            variants={slideVariants}
+                            initial="hidden"
+                            animate={openStates[index] ? "visible" : "hidden"} 
+                            transition={{
+                                duration: .4, // Slightly longer duration for smoothness
+                                ease: "easeInOut" // Smooth ease-in-out effect
+                            }}
                             data-is-open={openStates[index]}
                             className="train-content-container">
-                            <div className="train-content">
-
+                            <motion.div className="train-content">
                                 <h1>מוכנים לנוקאאוט?</h1>
                                 <Typography>
                                     אימון כוח פונקציונאלי
@@ -84,7 +84,7 @@ export default function Training() {
                                     ואגרוף באימון אחד. 45 דקות של אימון ממוקד בעצימות גבוהה,
                                     לא לבעלי לב חלש!
                                 </Typography>
-                            </div>
+                            </motion.div>
                             <div className="blur-space"></div>
                         </motion.div>
                     </>
