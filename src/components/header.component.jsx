@@ -61,8 +61,8 @@ function Header(props) {
                 {/* <Container maxWidth="xl"> */}
                 <Toolbar sx={{ justifyContent: 'space-between' }}>
                     {/* Desktop Logo */}
-                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                        <img src={logo} alt="logo" />
+                    <Box sx={{ display: { xs: 'none', md: 'flex' },width:"100px" }}>
+                        <img style={{width:"100%"}} src={logo} alt="logo" />
                     </Box>
                     {/* Mobile Hamburger Menu */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -118,13 +118,13 @@ function Header(props) {
                         </Button>
                     </Box>
                     <Box sx={{ display: { xs: 'none', md: 'block' } }}>
-                        <IconButton aria-label="Whatsapp" sx={{ paddingInlineStart: '0px' }}>
+                        <IconButton aria-label="Whatsapp" >
                             <FontAwesomeIcon icon={faWhatsapp} style={{ color: "black", backgroundColor: '#F5F3EF' }} />
                         </IconButton>
                         <IconButton aria-label="Instagram">
                             <FontAwesomeIcon icon={faInstagram} style={{ color: "black", backgroundColor: '#F5F3EF' }} />
                         </IconButton>
-                        <IconButton aria-label="Spotify" sx={{ paddingInlineEnd: '0px' }}>
+                        <IconButton aria-label="Spotify" >
                             <FontAwesomeIcon icon={faSpotify} style={{ color: "black", backgroundColor: '#F5F3EF' }} />
                         </IconButton>
                     </Box>

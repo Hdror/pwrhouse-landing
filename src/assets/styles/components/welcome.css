@@ -4,16 +4,23 @@
     justify-content: center;
     gap: 30px;
     flex-direction: column;
+    text-align: center;
 
     .headline-container {
         display: flex;
         align-items: center;
 
         h3 {
-            font-size: 3rem;
+            font-size: 1.5rem;
 
             span {
                 font-weight: 400;
+            }
+        }
+
+        @media screen and (min-width: 700px) {
+            h3 {
+                font-size: 3rem;
             }
         }
     }
