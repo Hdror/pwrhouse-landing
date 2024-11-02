@@ -1,4 +1,4 @@
-import { Typography, useMediaQuery } from '@mui/material';
+import { Hidden, Typography, useMediaQuery } from '@mui/material';
 import HorizentalScrollText from './horizental-scroll-text';
 import gloves from '../assets/img/gloves.jpg';
 import pilates from '../assets/img/pilates.jpeg';
@@ -28,6 +28,12 @@ export default function Training() {
         `הצלחנו ליצור מקום שתרגישו בו חלק, תרגישו בבית, והכי נוח בעולם.`,
     ];
 
+    const slideVariants = {
+        hidden: { x: "-100%", opacity: 0 },
+        hiddenRight: { x: "100%", opacity: 0 },
+        visible: { x: 0, opacity: 1 },
+    };
+
     return (
         <section className="training-container">
             <HorizentalScrollText isLargeScreen={isLargeScreen} />
@@ -44,35 +50,46 @@ export default function Training() {
                     { img: power, label: 'PWR' },
                     { img: gloves, label: 'BOXING' },
                 ].map((item, index) => (
-                    <motion.div
-                        key={index}
-                        layout
-                        data-is-open={openStates[index]}
-                        className="train-img-container"
-                    >
-                        <img src={item.img} alt={item.label} />
-                        <button
-                            onClick={() => handleToggle(index)}
-                            className="expend-train"
+                    <>
+                        {/* {(!openStates.includes(true) || openStates[index] ) && */}
+                        <motion.div
+                            key={index}
+                            layout
+                            data-is-open={openStates[index]}
+                            data-is-shown={openStates[index] || !openStates.includes(true)}
+                            className="train-img-container"
                         >
-                            {item.label}
-                        </button>
-                    </motion.div>
+                            <img src={item.img} alt={item.label} />
+                            <button
+                                onClick={() => handleToggle(index)}
+                                className="expend-train"
+                            >
+                                {item.label}
+                            </button>
+                        </motion.div>
+                        {/* } */}
+                        <motion.div
+                        // variants={slideVariants}
+                        //     initial="hidden"
+                        //     animate="visible"
+                            layout
+                            data-is-open={openStates[index]}
+                            className="train-content-container">
+                            <div className="train-content">
+
+                                <h1>מוכנים לנוקאאוט?</h1>
+                                <Typography>
+                                    אימון כוח פונקציונאלי
+                                    המשלב בין משקולות חופשיות
+                                    ואגרוף באימון אחד. 45 דקות של אימון ממוקד בעצימות גבוהה,
+                                    לא לבעלי לב חלש!
+                                </Typography>
+                            </div>
+                            <div className="blur-space"></div>
+                        </motion.div>
+                    </>
+
                 ))}
-
-                <div className="train-content-container">
-                    <div className="train-content">
-
-                        <h1>מוכנים לנוקאאוט?</h1>
-                        <Typography>
-                            אימון כוח פונקציונאלי
-                            המשלב בין משקולות חופשיות
-                            ואגרוף באימון אחד. 45 דקות של אימון ממוקד בעצימות גבוהה,
-                            לא לבעלי לב חלש!
-                        </Typography>
-                    </div>
-                    <div className="blur-space"></div>
-                </div>
 
             </motion.div>
         </section>
