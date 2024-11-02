@@ -6,6 +6,7 @@ import { Typography } from '@mui/material'
 import { motion } from 'framer-motion';
 import About from './components/about';
 import Training from './components/training';
+import Welcome from './components/welcome';
 
 function Home() {
 
@@ -47,6 +48,7 @@ function Home() {
       </section>
       <About />
       <Training/>
+      <Welcome/>
     </main>
   )
 }

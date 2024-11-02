@@ -5,6 +5,7 @@
     flex-direction: column;
     gap: 50px;
     position: relative;
+    margin-bottom: 50px;
 
     .training-content {
         text-align: center;
@@ -79,7 +80,7 @@
 .train-content-container {
     display: none;
     top: 0;
-    z-index: 9999;
+    z-index: 999;
     height: 100%;
     width: 50%;
     position: absolute;

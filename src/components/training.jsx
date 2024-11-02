@@ -1,4 +1,4 @@
-import { Hidden, Typography, useMediaQuery } from '@mui/material';
+import { Typography, useMediaQuery } from '@mui/material';
 import HorizentalScrollText from './horizental-scroll-text';
 import gloves from '../assets/img/gloves.jpg';
 import pilates from '../assets/img/pilates.jpeg';
@@ -29,8 +29,8 @@ export default function Training() {
     ];
 
     const slideVariants = {
-        hidden: { x: "100%",y:"30%", opacity: 0 },
-        visible: { x: 0,y:0, opacity: 1 },
+        hidden: { x: "100%", y: "30%", opacity: 0 },
+        visible: { x: 0, y: 0, opacity: 1 },
     };
 
     return (
@@ -49,7 +49,7 @@ export default function Training() {
                     { img: power, label: 'PWR' },
                     { img: gloves, label: 'BOXING' },
                 ].map((item, index) => (
-                    <>
+                    <  >
                         <motion.div
                             key={index}
                             layout
@@ -68,8 +68,9 @@ export default function Training() {
                         <motion.div
                             // layout
                             variants={slideVariants}
+                            key={index + 11}
                             initial="hidden"
-                            animate={openStates[index] ? "visible" : "hidden"} 
+                            animate={openStates[index] ? "visible" : "hidden"}
                             transition={{
                                 duration: .4, // Slightly longer duration for smoothness
                                 ease: "easeInOut" // Smooth ease-in-out effect
@@ -88,9 +89,7 @@ export default function Training() {
                             <div className="blur-space"></div>
                         </motion.div>
                     </>
-
                 ))}
-
             </motion.div>
         </section>
     );
