@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import React from 'react';
-
+import { Link, Element, scroller } from 'react-scroll';
 import { AppBar, Typography, Box, Toolbar, IconButton, Drawer, Button, List, ListItem, ListItemButton, ListItemText, useScrollTrigger } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,7 +8,17 @@ import { faInstagram, faSpotify, faWhatsapp } from '@fortawesome/free-brands-svg
 
 import logo from '../assets/svg/logo.svg';
 
+const scrollToSection = (section) => {
+    scroller.scrollTo(section, {
+        duration: 800, // Duration of the scroll
+        delay: 0,
+        smooth: 'easeInOutQuart', // Easing function for smoothness
+        offset: -50 // Offset for fixed headers, if necessary
+    });
+};
+
 const pages = ['נעים להכיר', 'האימונים שלנו', 'ברוכים הבאים'];
+const pageNames = ['about', 'trains', 'welcome']
 
 // This component handles the dynamic elevation (shadow) of the AppBar based on scroll position
 function ElevationScroll(props) {
@@ -36,6 +46,11 @@ function Header(props) {
         setIsDrawerOpen(open);
     };
 
+    const handleMobileMenuClick = (pageName) => {
+        scrollToSection(pageName)
+        setIsDrawerOpen(false)
+    }
+
     const list = (
         <Box
             sx={{ width: 250 }}
@@ -44,25 +59,27 @@ function Header(props) {
             onKeyDown={toggleDrawer(false)}
         >
             <List>
-                {pages.map((page) => (
-                    <ListItem key={page} disablePadding>
-                        <ListItemButton>
-                            <ListItemText sx={{ textAlign: 'right' }} primary={page} />
-                        </ListItemButton>
-                    </ListItem>
+                {pages.map((page, idx) => (
+                    <Link key={idx} to={page} onClick={() => handleMobileMenuClick(pageNames[idx])}>
+                        <ListItem key={page} disablePadding>
+                            <ListItemButton>
+                                <ListItemText sx={{ textAlign: 'right' }} primary={page} />
+                            </ListItemButton>
+                        </ListItem>
+                    </Link>
                 ))}
             </List>
-        </Box>
+        </Box >
     );
 
     return (
         <ElevationScroll {...props}>
             <AppBar position="fixed">
                 {/* <Container maxWidth="xl"> */}
-                <Toolbar sx={{ justifyContent: 'space-between' }}>
+                <Toolbar disableGutters sx={{ justifyContent: "space-between",paddingLeft:"40px",paddingRight:"40px" }}>
                     {/* Desktop Logo */}
-                    <Box sx={{ display: { xs: 'none', md: 'flex' },width:"100px" }}>
-                        <img style={{width:"100%"}} src={logo} alt="logo" />
+                    <Box sx={{ display: { xs: "none", md: "flex" }, width: "100px" }}>
+                        <img style={{ width: "100%" }} src={logo} alt="logo" />
                     </Box>
                     {/* Mobile Hamburger Menu */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -90,21 +107,23 @@ function Header(props) {
                     </Box>
                     {/* Desktop Menu */}
                     <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
-                        {pages.map((page) => {
+                        {pages.map((page, idx) => {
                             const splitWord = page.split(' ')
                             if (splitWord.length > 1)
-                                return <Button
-                                    key={page}
-                                    onClick={toggleDrawer(false)}
-                                    sx={{ color: 'black', display: 'flex', gap: '5px' }}
-                                >
-                                    <Typography sx={{ fontWeight: '700', fontFamily: 'main-font' }}>
-                                        {splitWord[0]}
-                                    </Typography>
-                                    <Typography>
-                                        {splitWord[1]}
-                                    </Typography>
-                                </Button>
+                                return <Link key={page} to={page}>
+                                    <Button
+                                        onClick={() => scrollToSection(pageNames[idx])}
+                                        sx={{ color: 'black', display: 'flex', gap: '5px' }}
+                                    >
+                                        <Typography sx={{ fontWeight: '700', fontFamily: 'main-font' }}>
+                                            {splitWord[0]}
+                                        </Typography>
+                                        <Typography>
+                                            {splitWord[1]}
+                                        </Typography>
+
+                                    </Button>
+                                </Link>
                             else return <Button
                                 key={page}
                                 onClick={toggleDrawer(false)}
@@ -118,15 +137,32 @@ function Header(props) {
                         </Button>
                     </Box>
                     <Box sx={{ display: { xs: 'none', md: 'block' } }}>
-                        <IconButton aria-label="Whatsapp" >
-                            <FontAwesomeIcon icon={faWhatsapp} style={{ color: "black", backgroundColor: '#F5F3EF' }} />
-                        </IconButton>
-                        <IconButton aria-label="Instagram">
-                            <FontAwesomeIcon icon={faInstagram} style={{ color: "black", backgroundColor: '#F5F3EF' }} />
-                        </IconButton>
-                        <IconButton aria-label="Spotify" >
-                            <FontAwesomeIcon icon={faSpotify} style={{ color: "black", backgroundColor: '#F5F3EF' }} />
-                        </IconButton>
+                        <a
+                            href="https://wa.me/message/2DPGRYWDQARSF1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <IconButton aria-label="Whatsapp" >
+                                <FontAwesomeIcon icon={faWhatsapp} style={{ color: "black" }} />
+                            </IconButton>
+                        </a>
+                        <a
+                            href="https://www.instagram.com/tair_avraham"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <IconButton aria-label="Instagram">
+                                <FontAwesomeIcon icon={faInstagram} style={{ color: "black" }} />
+                            </IconButton>
+                        </a>
+                        <a href="https://open.spotify.com/show/0eFowPUM3Wd4ETnCE5cMMK?si=a99f15cc0e674111"
+                            target="_blank"
+                            rel="noopener noreferrer">
+
+                            <IconButton aria-label="Spotify" >
+                                <FontAwesomeIcon icon={faSpotify} style={{ color: "black" }} />
+                            </IconButton>
+                        </a>
                     </Box>
                 </Toolbar>
             </AppBar>

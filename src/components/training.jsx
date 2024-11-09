@@ -5,6 +5,7 @@ import pilates from '../assets/img/pilates.jpeg';
 import power from '../assets/img/power.jpg';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import {FormatHeadline} from '../components/format-headline';
 
 export default function Training() {
     const isLargeScreen = useMediaQuery('(min-width:900px)');
@@ -12,11 +13,26 @@ export default function Training() {
     // Manage the open state for each train-img-container
     const [openStates, setOpenStates] = useState([false, false, false]);
 
-    const handleToggle = (index) => {
+    const handleToggle = (event,index) => {
+        event.stopPropagation()
         setOpenStates((prevStates) =>
             prevStates.map((isOpen, i) => (i !== index ? false : !isOpen))
         );
     };
+
+
+    const trainsTexts = {
+        pilatesTexts: ['מתחם פילאטיס מכשירים עם מיטות הפילאטיס המתקדמות והאיכותיות ביותר בעולם מבית MERRITHEW.', 'עם צוות מיומן ומדויק, הרכבנו מעטפת המתאימה לכולם. שיעורי הפילאטיס שלנו מתאימים לכל הרמות! מגיל שלישי, הריוניות ועד לנערות.', 'במתחם הפילאטיס נשלב בין פילאטיס על פי השיטה הקלאסית, אימוני PWR PILATES ועוד.'],
+        powerTexts: ['במתחם ה-PWR תמצאו מגוון אימוני כוח סופר מקצועיים ואפקטיביים שהם כל מה שאתם צריכים על מנת לפתח גוף חזק.'],
+        boxingTexts: ['אימון כוח פונקציונאליהמשלב בין משקולות חופשיות ואגרוף באימון אחד. 45 דקות של אימון ממוקד בעצימות גבוהה,לא לבעלי לב חלש!']
+
+    }
+
+    const trainitems = [
+        { img: pilates, label: 'PILATES REFORMER', headline: 'PILATES REFORMER', texts: trainsTexts.pilatesTexts },
+        { img: power, label: 'PWR', headline: 'PWR', subHeadline: 'אימוני כוח הם המומחיות שלנו.', texts: trainsTexts.powerTexts },
+        { img: gloves, label: 'PWR&BOXING', headline: 'PWR&BOX', subHeadline: 'מוכנים לנוקאאוט?', texts: trainsTexts.boxingTexts },
+    ]
 
     const trainingMainTexts = [
         `חווית אימון בין-לאומית בלב העמק. `,
@@ -44,31 +60,28 @@ export default function Training() {
                 ))}
             </div>
             <motion.div className="training-desc-container">
-                {[
-                    { img: pilates, label: 'PILATES REFORMER' },
-                    { img: power, label: 'PWR' },
-                    { img: gloves, label: 'BOXING' },
-                ].map((item, index) => (
-                    <  >
+
+                {trainitems.map((item, index) => {
+                    return <  >
                         <motion.div
                             key={index}
                             layout
                             data-is-open={openStates[index]}
                             data-is-shown={openStates[index] || !openStates.includes(true)}
                             className="train-img-container"
+                            onClick={(e) => handleToggle(e,index)}
                         >
                             <img src={item.img} alt={item.label} />
                             <button
-                                onClick={() => handleToggle(index)}
+                                onClick={(e) => handleToggle(e,index)}
                                 className="expend-train"
                             >
-                                {item.label}
+                              <FormatHeadline fontSize="20px" headline={item.label}/>
                             </button>
                         </motion.div>
                         <motion.div
-                            // layout
                             variants={slideVariants}
-                            key={index + 11}
+                            key={item.headline}
                             initial="hidden"
                             animate={openStates[index] ? "visible" : "hidden"}
                             transition={{
@@ -78,18 +91,21 @@ export default function Training() {
                             data-is-open={openStates[index]}
                             className="train-content-container">
                             <motion.div className="train-content">
-                                <h1>מוכנים לנוקאאוט?</h1>
-                                <Typography>
-                                    אימון כוח פונקציונאלי
-                                    המשלב בין משקולות חופשיות
-                                    ואגרוף באימון אחד. 45 דקות של אימון ממוקד בעצימות גבוהה,
-                                    לא לבעלי לב חלש!
-                                </Typography>
+                            <FormatHeadline headline={item.headline} />
+
+                                <div className="train-text-container">
+                                    {item.subHeadline &&
+                                        <h3 className="train-subheadline">{item.subHeadline}</h3>
+                                    }
+                                    {item.texts.map((text, index) => (
+                                        <Typography sx={{ fontSize: "1.3rem" }} key={index}>{text}</Typography>
+                                    ))}
+                                </div>
                             </motion.div>
                             <div className="blur-space"></div>
                         </motion.div>
                     </>
-                ))}
+                })}
             </motion.div>
         </section>
     );

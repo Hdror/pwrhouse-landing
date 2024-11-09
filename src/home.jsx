@@ -1,7 +1,7 @@
 import './assets/styles/main.css'
 import logo from './assets/svg/logo.svg'
 import arrowDown from './assets/svg/arrow-down.svg'
-
+import { Link, Element, scroller } from 'react-scroll';
 import { Typography } from '@mui/material'
 import { motion } from 'framer-motion';
 import About from './components/about';
@@ -33,7 +33,7 @@ function Home() {
             <Typography sx={{ fontWeight: "700", fontSize: "2.75rem" }}>
               בית
             </Typography>
-            <Typography sx={{ fontSize: "2.75rem",fontFamily:"main-font-thin" }}>
+            <Typography sx={{ fontSize: "2.75rem", fontFamily: "main-font-thin" }}>
               לאימונים
             </Typography>
           </div>
@@ -46,9 +46,15 @@ function Home() {
           animate="float"
         />
       </section>
+      <Element style={{ paddingTop: '50px' }} name='about'>
       <About />
-      <Training/>
-      <Welcome/>
+      </Element>
+      <Element style={{ paddingTop: '50px' }} name='trains'>
+        <Training />
+      </Element>
+      <Element style={{ paddingTop: '50px' }} name='welcome' >
+        <Welcome />
+      </Element>
     </main>
   )
 }

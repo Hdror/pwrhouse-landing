@@ -1,0 +1,7 @@
+.train-headline {
+    font-size: 2.5rem;
+
+    .unbold-headline {
+        font-weight: 400;
+    }
+}

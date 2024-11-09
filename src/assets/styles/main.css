@@ -6,6 +6,7 @@
 @import './components/training.css';
 @import './components/horizental-scroll-text.css';
 @import './components/welcome.css';
+@import './components/format-headline.css';
 
 /* Home-Page */
 @import './home-page.css';
