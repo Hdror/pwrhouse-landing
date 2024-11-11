@@ -1,8 +1,8 @@
 import './assets/styles/main.css'
 import logo from './assets/svg/logo.svg'
 import arrowDown from './assets/svg/arrow-down.svg'
-import { Link, Element, scroller } from 'react-scroll';
-import { Typography } from '@mui/material'
+import { Element } from 'react-scroll';
+import { Typography, useMediaQuery } from '@mui/material'
 import { motion } from 'framer-motion';
 import About from './components/about';
 import Training from './components/training';
@@ -10,7 +10,7 @@ import Welcome from './components/welcome';
 import Footer from './components/footer';
 
 function Home() {
-
+  const isLargeScreen = useMediaQuery('(min-width:900px)');
   // Define the animation variants
   const variants = {
     float: {
