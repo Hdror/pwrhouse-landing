@@ -1,0 +1,11 @@
+.form-container {
+    display: flex;
+    padding: 50px;
+    flex-direction: column;
+
+    .form-headline {
+        font-size: 4rem;
+        
+
+    }
+}

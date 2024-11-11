@@ -31,4 +31,36 @@
         flex-direction: column;
         gap: 5px;
     }
+
+    .sub-content-container {
+        display: flex;
+        width: 100%;
+        padding-top: 30px;
+        margin-bottom: 50px;
+        gap: 10px;
+
+        .video-container {
+            width: 40%;
+            background-color: #EEEEEE;
+            border-radius: 12px;
+        }
+
+        .sub-content {
+            display: flex;
+            width: 60%;
+            flex-direction: column;
+            gap: 20px;
+            text-align: right;
+
+            h3 {
+                font-size: 1.75rem;
+            }
+
+            subheadline-content, head-paragraph, main-paragraph {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    }
 }

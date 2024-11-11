@@ -4,6 +4,7 @@ import tahirImg from '../assets/img/tahir-img.png';
 import { AnimatePresence, delay, motion } from 'framer-motion';
 import CallReceivedIcon from '@mui/icons-material/CallReceived';
 import { useState } from 'react';
+import circle from '../assets/svg/circle2.svg'
 
 export default function About() {
 
@@ -56,21 +57,50 @@ export default function About() {
 
     return (
         <section className="about-container">
-            <motion.img
-                initial={{
-                    opacity: 0,
-                    x: 200,
-                }}
-                whileInView={{
-                    opacity: 1,
-                    x: 0, // Slide in to its original position,
-                    transition: {
-                        duration: 1 // Animation duration
-                    }
-                }}
-                // animate={{transform:"translateX:(100px)"}}
-                viewport={{ once: false }}
-                className="about-img" src={tahirImg} alt="trainer-image" />
+            <div className="about-img-container">
+                <AnimatePresence>
+                    {!isArticleOpen && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            whileInView={{
+                                opacity: 1,
+                                transition: {
+                                    duration: 1.3,
+                                    ease: 'linear'
+                                }
+                            }}
+                            exit={{
+                                opacity: 0, transition: {
+                                    duration: .7,
+                                    ease: 'linear'
+                                }
+                            }}
+                            // transition={{ duration: 1, ease: 'easeInOut' }}
+                            className="circle"
+                        >
+                            <img src={circle} alt="circle" />
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+                <motion.img
+                    initial={{
+                        opacity: 0,
+                        x: 200,
+                    }}
+                    whileInView={{
+                        opacity: 1,
+                        x: 0, // Slide in to its original position,
+                        transition: {
+                            duration: 1 // Animation duration
+                        },
+
+                    }}
+                    // animate={{transform:"translateX:(100px)"}}
+                    viewport={{ once: false }}
+                    className="about-img" src={tahirImg} alt="trainer-image"
+                />
+            </div>
+
 
             <article className="about-article-container">
                 <motion.div
@@ -98,7 +128,7 @@ export default function About() {
                     </Typography>
 
                     {/* SubHeadline */}
-                    <Typography variant='h4' sx={{ fontSize: '4rem', fontFamily: 'main-font', lineHeight: '1.125' }}>
+                    <Typography variant='h4' sx={{ fontSize: '4rem', fontFamily: 'main-font', lineHeight: '1.125',marginBlockEnd:'30px' }}>
                         {articleText.subHeadline.split("").map((letter, idx) => (
                             <motion.span
                                 key={idx}
@@ -115,9 +145,14 @@ export default function About() {
                     <AnimatePresence>
                         {isArticleOpen &&
                             <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1, transition: { duration: .5, ease: 'easeInOut' } }}
-                                exit={{ opacity: 0, transition: { duration: .5, ease: 'easeInOut' } }}
+                            initial="collapsed"
+                            animate="open"
+                            exit="collapsed"
+                            variants={{
+                              open: { opacity: 1, height: "auto" },
+                              collapsed: { opacity: 0, height: 0 }
+                            }}
+                            transition={{ duration: 0.8, ease: [0.0, 0.62, 0.23, 1] }}
                                 className="about-content-container" style={{ overflow: 'hidden' }}>
                                 <Typography component={motion.p}>{articleText.firstParagraph}</Typography>
                                 <Typography component={motion.p} sx={{ fontWeight: '700' }}>החזון שלי</Typography>

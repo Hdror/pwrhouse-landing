@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import About from './components/about';
 import Training from './components/training';
 import Welcome from './components/welcome';
+import Footer from './components/footer';
 
 function Home() {
 
@@ -47,13 +48,16 @@ function Home() {
         />
       </section>
       <Element style={{ paddingTop: '50px' }} name='about'>
-      <About />
+        <About />
       </Element>
       <Element style={{ paddingTop: '50px' }} name='trains'>
         <Training />
       </Element>
       <Element style={{ paddingTop: '50px' }} name='welcome' >
         <Welcome />
+      </Element>
+      <Element>
+        <Footer style={{ paddingTop: '100px' }} name='footer' />
       </Element>
     </main>
   )

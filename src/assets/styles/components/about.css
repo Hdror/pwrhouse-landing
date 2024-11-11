@@ -9,6 +9,31 @@
         width: 100%;
     }
 
+    .about-img-container {
+        position: relative;
+
+        .circle {
+            position: absolute;
+            height: 30%;
+            z-index: 999;
+            top: 11.5%;
+            transform: translateX(-50%);
+            left: 0;
+            border-radius: 50%;
+            backdrop-filter: blur(18px);
+            padding: 6px;
+            box-shadow: 0px 0px 9px 5px #a1a0a042;
+            border: 1px solid white;
+            border-left-color: transparent;
+            transform-origin: center;
+            img {
+                height: 100%;
+            }
+        }
+
+
+    }
+
     .about-article-container {
         display: flex;
         flex-direction: column;
@@ -24,7 +49,6 @@
             flex-direction: column;
             gap: 20px;
             width: 100%;
-            padding-top: 30px;
         }
     }
 

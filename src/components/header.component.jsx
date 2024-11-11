@@ -13,7 +13,7 @@ const scrollToSection = (section) => {
         duration: 800, // Duration of the scroll
         delay: 0,
         smooth: 'easeInOutQuart', // Easing function for smoothness
-        offset: -50 // Offset for fixed headers, if necessary
+        offset: -100 // Offset for fixed headers, if necessary
     });
 };
 
