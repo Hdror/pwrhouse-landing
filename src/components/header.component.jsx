@@ -102,8 +102,8 @@ function Header(props) {
                     </Box>
 
                     {/* Mobile Logo */}
-                    <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-                        <img src={logo} alt="logo" />
+                    <Box sx={{ display: { xs: 'flex', md: 'none',width: "100px"} }}>
+                        <img style={{ width: "100%" }} src={logo} alt="logo" />
                     </Box>
                     {/* Desktop Menu */}
                     <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>

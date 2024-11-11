@@ -5,7 +5,15 @@
 
     .form-headline {
         font-size: 4rem;
-        
+        padding-bottom: 30px;
+        border-bottom: 1px solid black;
+    }
 
+    .form-input {
+        width: 100%;
+        padding-block: 20px;
+        background-color: transparent;
+        border: unset;
+        border-bottom: 1px solid black;
     }
 }
