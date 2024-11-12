@@ -1,21 +1,14 @@
 import { useState } from 'react';
 import React from 'react';
-import { Link, Element, scroller } from 'react-scroll';
+import { Link } from 'react-scroll';
 import { AppBar, Typography, Box, Toolbar, IconButton, Drawer, Button, List, ListItem, ListItemButton, ListItemText, useScrollTrigger } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faSpotify, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 import logo from '../assets/svg/logo.svg';
+import scrollToSection from '../utils/scroll-to-section.js'
 
-const scrollToSection = (section) => {
-    scroller.scrollTo(section, {
-        duration: 800, // Duration of the scroll
-        delay: 0,
-        smooth: 'easeInOutQuart', // Easing function for smoothness
-        offset: -100 // Offset for fixed headers, if necessary
-    });
-};
 
 const pages = ['נעים להכיר', 'האימונים שלנו', 'ברוכים הבאים'];
 const pageNames = ['about', 'trains', 'welcome']
@@ -76,7 +69,7 @@ function Header(props) {
         <ElevationScroll {...props}>
             <AppBar position="fixed">
                 {/* <Container maxWidth="xl"> */}
-                <Toolbar disableGutters sx={{ justifyContent: "space-between",paddingLeft:"40px",paddingRight:"40px" }}>
+                <Toolbar disableGutters sx={{ justifyContent: "space-between", paddingLeft: "40px", paddingRight: "40px" }}>
                     {/* Desktop Logo */}
                     <Box sx={{ display: { xs: "none", md: "flex" }, width: "100px" }}>
                         <img style={{ width: "100%" }} src={logo} alt="logo" />
@@ -102,7 +95,7 @@ function Header(props) {
                     </Box>
 
                     {/* Mobile Logo */}
-                    <Box sx={{ display: { xs: 'flex', md: 'none',width: "100px"} }}>
+                    <Box sx={{ display: { xs: 'flex', md: 'none', width: "100px" } }}>
                         <img style={{ width: "100%" }} src={logo} alt="logo" />
                     </Box>
                     {/* Desktop Menu */}
@@ -132,9 +125,13 @@ function Header(props) {
                                 {splitWord[0]}
                             </Button>
                         })}
-                        <Button sx={{ color: 'black', border: '1px solid black', borderRadius: '50vw', paddingBlock: '0px', paddingInline: '15px', marginInlineStart: '6px', height: '30px' }} >
-                            <Typography>הרשמה</Typography>
-                        </Button>
+                        <Link to="footer">
+                            <Button
+                                onClick={() => scrollToSection("footer")}
+                                sx={{ color: 'black', border: '1px solid black', borderRadius: '50vw', paddingBlock: '0px', paddingInline: '15px', marginInlineStart: '6px', height: '30px' }} >
+                                <Typography>הרשמה</Typography>
+                            </Button>
+                        </Link>
                     </Box>
                     <Box sx={{ display: { xs: 'none', md: 'block' } }}>
                         <a

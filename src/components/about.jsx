@@ -6,7 +6,7 @@ import CallReceivedIcon from '@mui/icons-material/CallReceived';
 import { useState } from 'react';
 import circle from '../assets/svg/circle2.svg'
 
-export default function About() {
+export default function About({ isLargeScreen }) {
 
     const [isArticleOpen, setIsArticleOpen] = useState(false)
 
@@ -58,30 +58,33 @@ export default function About() {
     return (
         <section className="about-container">
             <div className="about-img-container">
-                <AnimatePresence>
-                    {!isArticleOpen && (
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            whileInView={{
-                                opacity: 1,
-                                transition: {
-                                    duration: 1.3,
-                                    ease: 'linear'
-                                }
-                            }}
-                            exit={{
-                                opacity: 0, transition: {
-                                    duration: .7,
-                                    ease: 'linear'
-                                }
-                            }}
-                            // transition={{ duration: 1, ease: 'easeInOut' }}
-                            className="circle"
-                        >
-                            <img src={circle} alt="circle" />
-                        </motion.div>
-                    )}
-                </AnimatePresence>
+                {isLargeScreen &&
+                    <AnimatePresence>
+                        {!isArticleOpen && (
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                whileInView={{
+                                    opacity: 1,
+                                    transition: {
+                                        duration: 1.3,
+                                        ease: 'linear'
+                                    }
+                                }}
+                                exit={{
+                                    opacity: 0, transition: {
+                                        duration: .7,
+                                        ease: 'linear'
+                                    }
+                                }}
+                                // transition={{ duration: 1, ease: 'easeInOut' }}
+                                className="circle"
+                            >
+                                <img src={circle} alt="circle" />
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                }
+
                 <motion.img
                     initial={{
                         opacity: 0,
@@ -128,7 +131,7 @@ export default function About() {
                     </Typography>
 
                     {/* SubHeadline */}
-                    <Typography variant='h4' sx={{ fontSize: '4rem', fontFamily: 'main-font', lineHeight: '1.125',marginBlockEnd:'30px' }}>
+                    <Typography variant='h4' sx={{ fontSize: '4rem', fontFamily: 'main-font', lineHeight: '1.125', marginBlockEnd: '30px' }}>
                         {articleText.subHeadline.split("").map((letter, idx) => (
                             <motion.span
                                 key={idx}
@@ -145,14 +148,14 @@ export default function About() {
                     <AnimatePresence>
                         {isArticleOpen &&
                             <motion.div
-                            initial="collapsed"
-                            animate="open"
-                            exit="collapsed"
-                            variants={{
-                              open: { opacity: 1, height: "auto" },
-                              collapsed: { opacity: 0, height: 0 }
-                            }}
-                            transition={{ duration: 0.8, ease: [0.0, 0.62, 0.23, 1] }}
+                                initial="collapsed"
+                                animate="open"
+                                exit="collapsed"
+                                variants={{
+                                    open: { opacity: 1, height: "auto" },
+                                    collapsed: { opacity: 0, height: 0 }
+                                }}
+                                transition={{ duration: 0.8, ease: [0.0, 0.62, 0.23, 1] }}
                                 className="about-content-container" style={{ overflow: 'hidden' }}>
                                 <Typography component={motion.p}>{articleText.firstParagraph}</Typography>
                                 <Typography component={motion.p} sx={{ fontWeight: '700' }}>החזון שלי</Typography>

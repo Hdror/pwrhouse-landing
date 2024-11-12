@@ -1,7 +1,7 @@
 .main-container {
     padding-top: 100px;
     /* height: calc(100% - 100px); */
-    padding-inline: 40px;
+    /* padding-inline: 40px; */
 
     .full-viewport-height {
         height: calc(100vh - 100px);
@@ -21,6 +21,7 @@
         justify-content: center;
         margin-bottom: 75px;
         position: relative;
+        padding-inline: 40px;
 
         .hero-content {
             display: flex;

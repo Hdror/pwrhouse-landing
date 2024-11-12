@@ -4,7 +4,7 @@
     grid-template-columns: 1fr 2fr;
     column-gap: 50px;
     margin-block-end: 75px;
-
+    padding-inline: 40px;
     .about-img {
         width: 100%;
     }

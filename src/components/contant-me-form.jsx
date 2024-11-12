@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import whiteArrow from '../assets/svg/white-arrow.svg'
+
 export default function ContantMeForm() {
 
     const [phoneNumber, setPhoneNumber] = useState('');
@@ -35,10 +37,13 @@ export default function ContantMeForm() {
         }
     };
 
-
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Add form submission logic here
+    };
 
     return (
-        <div className="form-container">
+        <form onSubmit={handleSubmit} className="form-container">
             <h2 className="form-headline">אני רוצה <span style={{ fontWeight: 400 }}>להרשם</span>!</h2>
             <label>
                 <input
@@ -52,7 +57,7 @@ export default function ContantMeForm() {
             </label>
             {nameError && <p style={{ color: 'red' }}>{nameError}</p>}
 
-                <label>
+            <label>
                 <input
                     type="text"
                     value={phoneNumber}
@@ -62,6 +67,10 @@ export default function ContantMeForm() {
                 />
             </label>
             {phoneError && <p style={{ color: 'red' }}>{phoneError}</p>}
-        </div>
+            <button type="submit" className="form-submit-button">
+                יס, איי דו
+                <img className="form-btn-icon" src={whiteArrow} alt="חץ לבן" />
+            </button>
+        </form>
     )
 }

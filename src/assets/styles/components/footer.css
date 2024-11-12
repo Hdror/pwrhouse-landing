@@ -1,0 +1,42 @@
+.footer {
+    display: flex;
+    border-top: 1px solid black;
+    width: 100%;
+    flex-direction: column;
+
+    .footer-main-container {
+        display: flex;
+
+        .footer-link-container {
+
+            display: flex;
+            flex-direction: column;
+
+
+            @media screen and (min-width:700px) {
+                width: 57%;
+            }
+
+            .footer-link-btn {
+                width: 100%;
+                border-bottom: 1px solid black;
+            }
+        }
+
+        .link-icons-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+    }
+
+    .footer-buttom-line {
+        background-color: #222222;
+        width: 100%;
+        height: 50px;
+    }
+
+
+}

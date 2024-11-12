@@ -8,6 +8,7 @@
 @import './components/welcome.css';
 @import './components/format-headline.css';
 @import './components/contant-me-form.css';
+@import './components/footer.css';
 
 /* Home-Page */
 @import './home-page.css';

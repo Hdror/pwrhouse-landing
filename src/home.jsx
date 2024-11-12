@@ -9,8 +9,11 @@ import Training from './components/training';
 import Welcome from './components/welcome';
 import Footer from './components/footer';
 
-function Home() {
-  const isLargeScreen = useMediaQuery('(min-width:900px)');
+function Home({ pages, pageNames }) {
+
+  const isLargeScreen = useMediaQuery('(min-width:1150px)');
+
+
   // Define the animation variants
   const variants = {
     float: {
@@ -48,7 +51,7 @@ function Home() {
         />
       </section>
       <Element style={{ paddingTop: '50px' }} name='about'>
-        <About />
+        <About isLargeScreen={isLargeScreen} />
       </Element>
       <Element style={{ paddingTop: '50px' }} name='trains'>
         <Training />
@@ -57,7 +60,7 @@ function Home() {
         <Welcome />
       </Element>
       <Element>
-        <Footer style={{ paddingTop: '100px' }} name='footer' />
+        <Footer pageNames={pageNames} pages={pages} style={{ paddingTop: '100px' }} name='footer' />
       </Element>
     </main>
   )

@@ -56,11 +56,14 @@ const theme = createTheme({
 });
 
 
+const pages = ['נעים להכיר', 'האימונים שלנו', 'ברוכים הבאים'];
+const pageNames = ['about', 'trains', 'welcome']
+
 
 createRoot(document.getElementById('root')).render(
   <ThemeProvider theme={theme}>
     <CssBaseline />
-    <Header />
-    <Home />
+    <Header pageNames={pageNames} pages={pages} />
+    <Home pageNames={pageNames} pages={pages} />
   </ThemeProvider>
 )
