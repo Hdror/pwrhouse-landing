@@ -53,7 +53,8 @@ function Header(props) {
         >
             <List>
                 {pages.map((page, idx) => (
-                    <Link key={idx} to={page} onClick={() => handleMobileMenuClick(pageNames[idx])}>
+                    
+                    <Link href={`#${page}`} key={idx} to={page} onClick={() => handleMobileMenuClick(pageNames[idx])}>
                         <ListItem key={page} disablePadding>
                             <ListItemButton>
                                 <ListItemText sx={{ textAlign: 'right' }} primary={page} />
@@ -72,7 +73,7 @@ function Header(props) {
                 <Toolbar disableGutters sx={{ justifyContent: "space-between", paddingLeft: "40px", paddingRight: "40px" }}>
                     {/* Desktop Logo */}
                     <Box sx={{ display: { xs: "none", md: "flex" }, width: "100px" }}>
-                        <img style={{ width: "100%" }} src={logo} alt="logo" />
+                        <img style={{ width: "100%",height:"40px" }} src={logo} alt="logo" />
                     </Box>
                     {/* Mobile Hamburger Menu */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -99,19 +100,19 @@ function Header(props) {
                         <img style={{ width: "100%" }} src={logo} alt="logo" />
                     </Box>
                     {/* Desktop Menu */}
-                    <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
+                    <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center',gap:'5px' }}>
                         {pages.map((page, idx) => {
                             const splitWord = page.split(' ')
                             if (splitWord.length > 1)
-                                return <Link key={page} to={page}>
+                                return <Link href={`#${page}`} key={page} to={page}>
                                     <Button
                                         onClick={() => scrollToSection(pageNames[idx])}
                                         sx={{ color: 'black', display: 'flex', gap: '5px' }}
                                     >
-                                        <Typography sx={{ fontWeight: '700', fontFamily: 'main-font' }}>
+                                        <Typography sx={{ fontWeight: '700',fontSize:'1.375rem' }}>
                                             {splitWord[0]}
                                         </Typography>
-                                        <Typography>
+                                        <Typography sx={{fontSize:'1.375rem' }}>
                                             {splitWord[1]}
                                         </Typography>
 
@@ -125,11 +126,11 @@ function Header(props) {
                                 {splitWord[0]}
                             </Button>
                         })}
-                        <Link to="footer">
+                        <Link href={`#footer`} to="footer">
                             <Button
                                 onClick={() => scrollToSection("footer")}
                                 sx={{ color: 'black', border: '1px solid black', borderRadius: '50vw', paddingBlock: '0px', paddingInline: '15px', marginInlineStart: '6px', height: '30px' }} >
-                                <Typography>הרשמה</Typography>
+                                <Typography sx={{fontSize:'1.375rem'}}>הרשמה</Typography>
                             </Button>
                         </Link>
                     </Box>
@@ -140,7 +141,7 @@ function Header(props) {
                             rel="noopener noreferrer"
                         >
                             <IconButton aria-label="Whatsapp" >
-                                <FontAwesomeIcon icon={faWhatsapp} style={{ color: "black" }} />
+                                <FontAwesomeIcon icon={faWhatsapp} style={{ color: "black",height:"31px",width:"31px" }} />
                             </IconButton>
                         </a>
                         <a
@@ -149,7 +150,7 @@ function Header(props) {
                             rel="noopener noreferrer"
                         >
                             <IconButton aria-label="Instagram">
-                                <FontAwesomeIcon icon={faInstagram} style={{ color: "black" }} />
+                                <FontAwesomeIcon icon={faInstagram} style={{ color: "black",height:"31px",width:"31px" }} />
                             </IconButton>
                         </a>
                         <a href="https://open.spotify.com/show/0eFowPUM3Wd4ETnCE5cMMK?si=a99f15cc0e674111"
@@ -157,7 +158,7 @@ function Header(props) {
                             rel="noopener noreferrer">
 
                             <IconButton aria-label="Spotify" >
-                                <FontAwesomeIcon icon={faSpotify} style={{ color: "black" }} />
+                                <FontAwesomeIcon  icon={faSpotify} style={{ color: "black",height:"31px",width:"31px" }} />
                             </IconButton>
                         </a>
                     </Box>

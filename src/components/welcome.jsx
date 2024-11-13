@@ -14,7 +14,7 @@ export default function Welcome() {
     return (
         <section className="welcome-container">
             <div className="headline-container">
-                <h3>{welomeHeadline[0]} <span>{welomeHeadline[1]}</span></h3>
+                <h2>{welomeHeadline[0]} <span>{welomeHeadline[1]}</span></h2>
                 <CallReceivedIcon sx={{ fontSize: isLargeScreen ? "3rem" : "1.5rem", marginTop: isLargeScreen ? "9px" : "5px" }}></CallReceivedIcon>
             </div>
             <div className="welcome-content">

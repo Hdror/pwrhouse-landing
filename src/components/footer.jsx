@@ -14,7 +14,7 @@ export default function Footer({ pages, pageNames }) {
             <div className="footer-main-container">
                 <div className="footer-link-container">
                     {pages.map((page, idx) => {
-                        return <Link key={page} to={page}>
+                        return <Link href={`#${page}`} key={page} to={page}>
                             <Button
                                 onClick={() => scrollToSection(pageNames[idx])}
                                 sx={{ color: 'black', padding: 0, borderRadius: 'unset' }}
