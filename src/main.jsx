@@ -13,6 +13,15 @@ const theme = createTheme({
   typography: {
     fontFamily: 'main-font',
   },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1400,
+    },
+  },
   components: {
     MuiCssBaseline: {
       styleOverrides: `

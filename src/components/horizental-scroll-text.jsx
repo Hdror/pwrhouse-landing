@@ -2,9 +2,9 @@ import { motion} from 'framer-motion';
 import { Typography } from '@mui/material'
 import CallReceivedIcon from '@mui/icons-material/CallReceived'
 
-export default function HorizentalScrollText({ isLargeScreen }) {
+export default function HorizentalScrollText({ isMidLargeScreen }) {
 
-    let renderTextAmount = isLargeScreen ? 13 : 7
+    let renderTextAmount = isMidLargeScreen ? 13 : 7
 
     const scrollingTexts = ['האימונים', 'שלנו']
 

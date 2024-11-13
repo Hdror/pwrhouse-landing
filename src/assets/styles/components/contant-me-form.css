@@ -1,13 +1,12 @@
 .form-container {
     display: flex;
-    padding: 60px;
     flex-direction: column;
-    border-top: 1px solid black;
-
+    padding: 20px;
+    
     @media screen and (min-width:1000px) {
+        padding: 60px;
         width: 43%;
         border-right: 1px solid black;
-        border-top: unset;
 
     }
 

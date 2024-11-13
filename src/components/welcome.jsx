@@ -9,8 +9,9 @@ export default function Welcome() {
         boldParagraphs: ['נבנה מתוך אמונה אמיתית מהלב -', 'אימונים נותנים לנו כוח להתמודד עם כל דבר שעומד בדרכינו.'],
         headParagraphs: ['אנחנו כאן לתת לכם חווית אימון שעדיין לא נראתה כאן בעמק.', 'עם מתחמי אימון שונים הכוללים פילאטיס מכשירים, מתחם אימוני כוח ואגרוף.'],
         mainParagraphs: ['אנחנו מאמינים שבבית מרגישים בנוח - לכן יחס אישי ותשומת לב', 'הם אחד העקרונות המובילים אותנו בכל מה שקשור לחווית האימון שלכם.', 'האימונים מתבצעים בקבוצות אינטימיות,', 'בהן כל אחד מהמתאמנים הוא עולם ומלואו עבורנו.', 'מצאתם את המקום שלכם להתאמן, להנות, להתקדם ופשוט להיות אתם.']
-
     }
+    const detailsTexts = ['שלושה מתחמים', 'קבוצות קטנות', 'יחס אישי']
+
     return (
         <section className="welcome-container">
             <div className="headline-container">
@@ -32,17 +33,26 @@ export default function Welcome() {
                     <h3>PWR<span style={{ fontWeight: 400 }}>HOUSE</span></h3>
                     <div className="subheadline-content">
                         {subContentText.boldParagraphs.map((paragraph, index) => (
-                            <Typography sx={{ fontWeight: 700, lineHeight: 1.6 ,fontSize:'1.25rem'}} key={index}>{paragraph}</Typography>
+                            <Typography sx={{ fontWeight: 700, lineHeight: 1.6, fontSize: '1.25rem',paddingInline: { md: "10px" }  }} key={index}>{paragraph}</Typography>
                         ))}
                     </div>
                     <div className="head-paragraph">
                         {subContentText.headParagraphs.map((paragraph, index) => (
-                            <Typography sx={{ lineHeight: 1.6,fontSize:'1.25rem' }} key={index}>{paragraph}</Typography>
+                            <Typography sx={{ lineHeight: 1.6, fontSize: '1.25rem',paddingInline: { md: "10px" }  }} key={index}>{paragraph}</Typography>
                         ))}
                     </div>
                     <div className="main-paragraph">
                         {subContentText.mainParagraphs.map((paragraph, index) => (
-                            <Typography sx={{ lineHeight: 1.6,fontSize:'1.25rem' }} key={index}>{paragraph}</Typography>
+                            <Typography sx={{ lineHeight: 1.6, fontSize: '1.25rem',paddingInline: { md: "10px" }  }} key={index}>{paragraph}</Typography>
+                        ))}
+                    </div>
+                    <div className="details-container">
+                        {detailsTexts.map((detail, index) => (
+                            <div key={index} className="detail-container">
+                                <CallReceivedIcon sx={{ fontSize: '28px', marginTop: '3px' }}></CallReceivedIcon>
+                                <Typography sx={{ fontSize: "1.375rem" }}>{detail}</Typography>
+                            </div>
+
                         ))}
                     </div>
                 </div>

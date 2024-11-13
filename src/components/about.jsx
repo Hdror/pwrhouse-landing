@@ -6,7 +6,7 @@ import CallReceivedIcon from '@mui/icons-material/CallReceived';
 import { useState } from 'react';
 import circle from '../assets/svg/circle2.svg'
 
-export default function About({ isLargeScreen }) {
+export default function About({ isLargeScreen,isMidLargeScreen, isMidScreen, isSmallScreen }) {
 
     const [isArticleOpen, setIsArticleOpen] = useState(false)
 
@@ -88,7 +88,7 @@ export default function About({ isLargeScreen }) {
                 <motion.img
                     initial={{
                         opacity: 0,
-                        x: 200,
+                        x: 100,
                     }}
                     whileInView={{
                         opacity: 1,
@@ -115,7 +115,7 @@ export default function About({ isLargeScreen }) {
                 >
 
                     {/* Headline */}
-                    <Typography variant='h3' sx={{ fontWeight: '700', lineHeight: '1.5' }}>
+                    <Typography variant='h3' sx={{ fontWeight: '700', lineHeight: '1.5', fontSize: { xs: "1.5rem", md: "2.5rem", xl: "4rem" }, paddingLeft: { xs: "50px" } }}>
                         {articleText.headline.split("").map((letter, idx) => (
                             <motion.span
                                 key={idx}
@@ -131,7 +131,7 @@ export default function About({ isLargeScreen }) {
                     </Typography>
 
                     {/* SubHeadline */}
-                    <Typography variant='h4' sx={{ fontSize: '4rem', fontFamily: 'main-font', lineHeight: '1.125', marginBlockEnd: '30px' }}>
+                    <Typography variant='h4' sx={{ fontSize: { xs: "1.5rem", md: "2.5rem", xl: "4rem" }, fontFamily: 'main-font', lineHeight: '1.125', marginBlockEnd: { sm: '30px' } }}>
                         {articleText.subHeadline.split("").map((letter, idx) => (
                             <motion.span
                                 key={idx}
@@ -145,39 +145,62 @@ export default function About({ isLargeScreen }) {
                             </motion.span>
                         ))}
                     </Typography>
-                    <AnimatePresence>
-                        {isArticleOpen &&
-                            <motion.div
-                                initial="collapsed"
-                                animate="open"
-                                exit="collapsed"
-                                variants={{
-                                    open: { opacity: 1, height: "auto" },
-                                    collapsed: { opacity: 0, height: 0 }
-                                }}
-                                transition={{ duration: 0.8, ease: [0.0, 0.62, 0.23, 1] }}
-                                className="about-content-container" style={{ overflow: 'hidden' }}>
-                                <Typography component={motion.p}>{articleText.firstParagraph}</Typography>
-                                <Typography component={motion.p} sx={{ fontWeight: '700' }}>החזון שלי</Typography>
-                                <Typography component={motion.p}>{articleText.secondParagraph}</Typography>
-                                <Typography component={motion.p}>{articleText.powerSentence}</Typography>
-                                <Typography component={motion.p}>{articleText.finalParagraph}</Typography>
-                            </motion.div>
-                        }
+                    {isMidLargeScreen &&
+                        <AnimatePresence>
+                            {isArticleOpen &&
+                                <motion.div
+                                    initial="collapsed"
+                                    animate="open"
+                                    exit="collapsed"
+                                    variants={{
+                                        open: { opacity: 1, height: "auto" },
+                                        collapsed: { opacity: 0, height: 0 }
+                                    }}
+                                    transition={{ duration: 0.8, ease: [0.0, 0.62, 0.23, 1] }}
+                                    className="about-content-container" style={{ overflow: 'hidden' }}>
+                                    <Typography component={motion.p}>{articleText.firstParagraph}</Typography>
+                                    <Typography component={motion.p} sx={{ fontWeight: '700' }}>החזון שלי</Typography>
+                                    <Typography component={motion.p}>{articleText.secondParagraph}</Typography>
+                                    <Typography component={motion.p}>{articleText.powerSentence}</Typography>
+                                    <Typography component={motion.p}>{articleText.finalParagraph}</Typography>
+                                </motion.div>
+                            }
 
-                    </AnimatePresence>
+                        </AnimatePresence>
+
+                    }
+
                     <motion.button
                         className="read-more-btn"
                         variants={buttonVariant}
                         onClick={handleToggleArticle}
                         title='הסיפור שלי'>
-                        <Typography component={motion.p} sx={{ fontSize: '1.875rem', lineHeight: '2.4' }}>{articleText.accordionline}</Typography>
+                        <Typography component={motion.p} sx={{ fontSize: { xs: "1.2rem", md: "1.875rem" }, lineHeight: '2.4' }}>{articleText.accordionline}</Typography>
                         <CallReceivedIcon component={motion.svg} sx={{ fontSize: '1.875rem', marginTop: '4px' }}></CallReceivedIcon>
                     </motion.button>
+
 
                 </motion.div>
 
             </article>
+            {isSmallScreen &&
+                <motion.div
+                    initial="collapsed"
+                    animate="open"
+                    exit="collapsed"
+                    variants={{
+                        open: { opacity: 1, height: "auto" },
+                        collapsed: { opacity: 0, height: 0 }
+                    }}
+                    transition={{ duration: 0.8, ease: [0.0, 0.62, 0.23, 1] }}
+                    className="about-content-container" style={{ overflow: 'hidden' }}>
+                    <Typography component={motion.p}>{articleText.firstParagraph}</Typography>
+                    <Typography component={motion.p} sx={{ fontWeight: '700' }}>החזון שלי</Typography>
+                    <Typography component={motion.p}>{articleText.secondParagraph}</Typography>
+                    <Typography component={motion.p}>{articleText.powerSentence}</Typography>
+                    <Typography component={motion.p}>{articleText.finalParagraph}</Typography>
+                </motion.div>
+            }
         </section>
     );
 }

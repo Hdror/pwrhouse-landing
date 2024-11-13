@@ -5,8 +5,11 @@
     gap: 30px;
     flex-direction: column;
     text-align: center;
-    padding-inline: 40px;
     margin-bottom: 50px;
+
+    @media screen and (min-width:1000px) {
+        padding-inline: 40px;
+    }
 
     .headline-container {
         display: flex;
@@ -32,6 +35,11 @@
         align-items: center;
         flex-direction: column;
         gap: 5px;
+        padding-inline: 10px;
+
+        @media screen and (min-width:1000px) {
+            padding-inline: unset;
+        }
     }
 
     .sub-content-container {
@@ -40,29 +48,78 @@
         padding-top: 30px;
         margin-bottom: 50px;
         gap: 10px;
+        flex-direction: column;
+
+        @media screen and (min-width:1000px) {
+            flex-direction: row;
+        }
 
         .video-container {
-            width: 40%;
             background-color: #EEEEEE;
             border-radius: 12px;
+            width: 100%;
+            height: 300px;
+            padding-inline: 10px;
+
+            @media screen and (min-width:1000px) {
+                width: 40%;
+                padding-inline: unset;
+                height: unset;
+            }
         }
 
         .sub-content {
             display: flex;
-            width: 60%;
             flex-direction: column;
             gap: 20px;
             text-align: right;
 
-            h3 {
-                font-size: 1.75rem;
+            @media screen and (min-width:1000px) {
+                width: 60%;
             }
 
-            subheadline-content, head-paragraph, main-paragraph {
+            h3 {
+                font-size: 1.75rem;
+                padding-inline: 10px;
+
+                @media screen and (min-width:1000px) {
+                    width: 60%;
+                    padding-inline: unset;
+                }
+            }
+
+            .subheadline-content, .head-paragraph, .main-paragraph {
                 display: flex;
                 flex-direction: column;
-                gap: 15px;
+                gap: 2px;
+                padding-inline: 10px;
+
+                @media screen and (min-width:1000px) {
+                    padding-inline: unset;
+                }
+            }
+
+            .details-container {
+                margin-top: 30px;
+
+                .detail-container {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    padding-block: 20px;
+                    border-bottom: 1px solid black;
+                    padding-inline: 10px;
+
+                    @media screen and (min-width:1000px) {
+                        padding-inline: unset;
+                    }
+
+                    &:first-of-type {
+                        border-top: 1px solid black;
+                    }
+                }
             }
         }
     }
+
 }
