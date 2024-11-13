@@ -7,6 +7,10 @@
     position: relative;
     overflow: hidden;
     white-space: nowrap;
+    /* width: 100vw; */
+    left: 0;
+    top: -20px;
+    position: absolute;
 
     .scroll-text-box {
         display: flex;

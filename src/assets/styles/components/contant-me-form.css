@@ -2,18 +2,31 @@
     display: flex;
     padding: 60px;
     flex-direction: column;
-    border-right: 1px solid black;
-    width: 43%;
+    border-top: 1px solid black;
+
+    @media screen and (min-width:1000px) {
+        width: 43%;
+        border-right: 1px solid black;
+        border-top: unset;
+
+    }
 
     .form-headline {
 
         padding-bottom: 30px;
         border-bottom: 1px solid black;
         font-size: 2rem;
+        text-align: center;
 
-        @media screen and (min-width:1200px) {
+        @media screen and (min-width:1000px) {
+            font-size: 3rem;
+            text-align: unset;
+        }
+
+        @media screen and (min-width:1400px) {
             font-size: 4rem;
         }
+       
 
     }
 
