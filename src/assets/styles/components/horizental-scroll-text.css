@@ -9,7 +9,7 @@
     white-space: nowrap;
     /* width: 100vw; */
     left: 0;
-    top: -20px;
+    top: 0px;
     position: absolute;
 
     .scroll-text-box {

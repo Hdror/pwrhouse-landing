@@ -53,13 +53,13 @@ function Home({ pages, pageNames }) {
           animate="float"
         />
       </section>
-      <Element style={{ paddingTop: '50px' }} name='about'>
+      <Element style={{}} name='about'>
         <About isMidLargeScreen={isMidLargeScreen} isSmallScreen={isSmallScreen} isMidScreen={isMidScreen} isLargeScreen={isLargeScreen} />
       </Element>
-      <Element  style={{ paddingTop: '50px' }} name='trains'>
+      <Element  style={{}} name='trains'>
         <Training isSmallScreen={isSmallScreen} isMidScreen={isMidScreen} isLargeScreen={isLargeScreen}/>
       </Element>
-      <Element style={{ paddingTop: '50px' }} name='welcome' >
+      <Element style={{}} name='welcome' >
         <Welcome />
       </Element>
       <Element>

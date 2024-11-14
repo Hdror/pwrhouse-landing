@@ -33,17 +33,17 @@ export default function Welcome() {
                     <h3>PWR<span style={{ fontWeight: 400 }}>HOUSE</span></h3>
                     <div className="subheadline-content">
                         {subContentText.boldParagraphs.map((paragraph, index) => (
-                            <Typography sx={{ fontWeight: 700, lineHeight: 1.6, fontSize: '1.25rem',paddingInline: { md: "10px" }  }} key={index}>{paragraph}</Typography>
+                            <Typography sx={{ fontWeight: 700, lineHeight: 1.6, fontSize: '1.25rem'  }} key={index}>{paragraph}</Typography>
                         ))}
                     </div>
                     <div className="head-paragraph">
                         {subContentText.headParagraphs.map((paragraph, index) => (
-                            <Typography sx={{ lineHeight: 1.6, fontSize: '1.25rem',paddingInline: { md: "10px" }  }} key={index}>{paragraph}</Typography>
+                            <Typography sx={{ lineHeight: 1.6, fontSize: '1.25rem'  }} key={index}>{paragraph}</Typography>
                         ))}
                     </div>
                     <div className="main-paragraph">
                         {subContentText.mainParagraphs.map((paragraph, index) => (
-                            <Typography sx={{ lineHeight: 1.6, fontSize: '1.25rem',paddingInline: { md: "10px" }  }} key={index}>{paragraph}</Typography>
+                            <Typography sx={{ lineHeight: 1.6, fontSize: '1.25rem'  }} key={index}>{paragraph}</Typography>
                         ))}
                     </div>
                     <div className="details-container">

@@ -176,7 +176,7 @@ export default function About({ isLargeScreen,isMidLargeScreen, isMidScreen, isS
                         onClick={handleToggleArticle}
                         title='הסיפור שלי'>
                         <Typography component={motion.p} sx={{ fontSize: { xs: "1.2rem", md: "1.875rem" }, lineHeight: '2.4' }}>{articleText.accordionline}</Typography>
-                        <CallReceivedIcon component={motion.svg} sx={{ fontSize: '1.875rem', marginTop: '4px' }}></CallReceivedIcon>
+                        <CallReceivedIcon component={motion.svg} sx={{ fontSize: { xs: "1.5rem", md: "1.875rem" }, marginTop: '4px' }}></CallReceivedIcon>
                     </motion.button>
 
 

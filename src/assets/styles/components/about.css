@@ -9,7 +9,7 @@
     @media screen and (min-width:1000px) {
         grid-template-columns: 1fr 2fr;
         padding-inline: 40px;
-        margin-block-end: 75px;
+        margin-block-end: 50px;
         column-gap: 50px;
 
     }
@@ -86,6 +86,7 @@
         justify-content: center;
         background-color: transparent;
         border: unset;
+        padding-inline: 0;
     }
 
 }

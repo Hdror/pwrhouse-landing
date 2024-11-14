@@ -5,16 +5,16 @@
     flex-direction: column;
     gap: 50px;
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 35px;
     padding-inline: 10px;
+    position: relative;
+    padding-top: 125px;
 
     @media screen and (min-width:600px) {
         padding-inline: 40px;
 
     }
 
-    position: relative;
-    padding-top: 100px;
 
     .training-content {
         text-align: center;
@@ -25,6 +25,7 @@
         justify-content: space-between;
         position: relative;
         flex-direction: column;
+        padding-block: 20px;
 
         @media screen and (min-width:1000px) {
             flex-direction: row;
